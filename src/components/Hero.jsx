@@ -48,13 +48,17 @@ export default function Hero() {
       <p className="hero__body">
         {"\u201C"}Protopolis{"\u201D"} fuses {"\u201C"}proto{"\u201D"} and{" "}
         {"\u201C"}polis,{"\u201D"} evoking the iterative prototyping of civic
-        protocols within the city-as-commons {"\u2014"} a public realm of
+        protocols within the city-as-commons{"\u2014"}a public realm of
         governance, reciprocity, and collective imagination. The physical and
         digital are increasingly collapsing into a single, responsive fabric. In
         an era of self-writing code, multiple accelerating intelligences, eroding
-        institutional trust, and cascading shocks {"\u2014"} from global
-        pandemics to climate risks {"\u2014"} our coordination mechanisms must
-        evolve as quickly as the crises they address.
+        institutional trust, and cascading shocks - from global pandemics to
+        climate risks - our coordination mechanisms must evolve as quickly as the
+        crises they address. Guided by classical notions of the polis alongside
+        contemporary philosophies of distributed agency, co-constitution of
+        nature and artifice, and solarpunk imaginaries of commoning, the Lab
+        treats the polis as a living prototype whose rules are adapted and
+        written in an open-ended way.
       </p>
       <p className="hero__body">
         Unconstrained by any single discipline, Protopolis Lab operates in an
@@ -63,9 +67,14 @@ export default function Hero() {
         alike. Through a blend of rigorous inquiry of both big data and small
         data, on-the-ground experimentation, and speculative design, the Lab
         catalogs and interprets emerging phenomena in the protocolized polis
-        while also building civic toolkits, governance playbooks, and open-source
-        protocol libraries {"\u2014"} resources that empower communities to
-        co-create more resilient ways of living together.
+        while also building civic toolkits, governance playbooks, and
+        open-source protocol libraries{"\u2014"}resources that empower
+        communities to co-create more resilient ways of living together. Beyond
+        academic papers and conference talks, Protopolis Lab is dedicated to
+        producing a range of other outputs, including digital and physical
+        prototypes, open-source toolkits and datasets, audio-visual
+        storytelling, exhibitions and installations, participatory workshops, and
+        curriculum development.
       </p>
       <div className="hero__outputs">
         <div className="hero__outputs-label">OUTPUTS {"\u2192"}</div>

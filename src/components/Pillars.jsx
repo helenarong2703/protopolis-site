@@ -1,7 +1,7 @@
 import { pillars } from "../data/pillars";
 import "./Pillars.css";
 
-function PillarCard({ number, title, keywords, works, isActive, onClick }) {
+function PillarCard({ number, title, keywords, description, works, isActive, onClick }) {
   return (
     <div
       className={`pillar-card ${isActive ? "pillar-card--active" : ""}`}
@@ -20,6 +20,9 @@ function PillarCard({ number, title, keywords, works, isActive, onClick }) {
           </span>
         ))}
       </div>
+      {isActive && description && (
+        <p className="pillar-card__description">{description}</p>
+      )}
       {isActive && works && (
         <div className="pillar-card__works">
           <div className="pillar-card__works-label">Selected Works</div>

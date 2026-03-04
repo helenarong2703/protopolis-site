@@ -84,6 +84,15 @@
   margin-bottom: 20px;
 }
 
+.pillar-card__description {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 16px;
+  animation: fadeSlideIn 0.4s ease;
+}
+
 .pillar-card__keyword {
   font-size: 10px;
   font-family: var(--font-mono);
