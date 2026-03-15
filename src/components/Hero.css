@@ -3,11 +3,31 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 48px 80px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 80px 0 80px 80px;
+  max-width: none;
+  margin: 0;
   position: relative;
   z-index: 10;
+  overflow: hidden;
+}
+
+.hero__top {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 4px;
+}
+
+.hero__text {
+  flex: 0 1 740px;
+  min-width: 0;
+}
+
+@media (max-width: 860px) {
+  .hero__top {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
 }
 
 .hero__status {
@@ -30,7 +50,7 @@
 
 .hero__title--glitch {
   animation: glitchShift 0.15s ease;
-  text-shadow: 2px 0 #00ff88, -2px 0 #ffaa00;
+  text-shadow: 2px 0 var(--color-accent), -2px 0 var(--color-accent-secondary);
 }
 
 .hero__tagline {
@@ -38,7 +58,7 @@
   font-size: 20px;
   font-style: italic;
   color: var(--color-text-dim);
-  margin-bottom: 40px;
+  margin-bottom: 24px;
   font-weight: 300;
 }
 
@@ -46,9 +66,33 @@
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text);
   max-width: 720px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.hero__intro--colored strong {
+  color: var(--color-accent);
+}
+
+.hero__readmore {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--color-accent);
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 16px;
+  padding: 4px 0;
+  transition: opacity 0.3s;
+}
+
+.hero__readmore:hover {
+  opacity: 0.7;
+}
+
+.hero__expanded {
+  animation: fadeSlideIn 0.4s ease;
 }
 
 .hero__body {
@@ -86,7 +130,7 @@
 .hero__output-tag {
   font-family: var(--font-sans);
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.45);
+  color: var(--color-text-dimmer);
   background: var(--color-surface-hover);
   padding: 5px 12px;
   border-radius: 1px;

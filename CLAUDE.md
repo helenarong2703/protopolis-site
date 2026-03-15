@@ -98,6 +98,13 @@ npm run preview  # Preview production build locally
 8. **Pushed to GitHub**: Created public repo at `github.com/helenarong2703/protopolis-site`, initial commit on `main`
 9. **Vercel setup started**: User importing repo on Vercel; project name conflict resolved (use alternate name like `protopol-is` — only affects `.vercel.app` URL, not custom domain)
 
+### 2026-03-04 — Content Accuracy & Deployment Fix
+1. **Fixed Hero about text**: Added two missing sentences from docx — "Guided by classical notions of the polis..." and "Beyond academic papers and conference talks..." — so the about section now matches `protopolis_lab_revised.docx` word-for-word
+2. **Added pillar descriptions**: `PillarCard` component now renders the `description` field when a card is expanded (was previously ignored). Added `.pillar-card__description` CSS with `fadeSlideIn` animation
+3. **Completed pillar description text**: Filled in truncated descriptions for pillars 2, 3, and 4 in `src/data/pillars.js` to match docx exactly
+4. **Committed and pushed**: Second commit `1163d66` pushed to `protopolis-site` repo
+5. **Identified Vercel repo mismatch**: User had two GitHub repos — `protopolis-site` (our code, 2 commits) and `protopolis-lab` (empty, 1 default commit). Vercel was connected to the wrong one (`protopolis-lab`). User advised to reconnect Vercel to `protopolis-site`
+
 ### Environment Notes
 - Machine lacks Homebrew and sudo access — `gh` CLI installed as standalone binary at `~/bin/gh`
 - Git global config set: `user.name "Helena Rong"`, `user.email "hr2703@nyu.edu"`

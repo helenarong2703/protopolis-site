@@ -2,6 +2,7 @@ export const pillars = [
   {
     number: 1,
     title: "Civic Protocols & Collective Governance",
+    summary: "How coordination mechanisms scale, evolve, and culturally localize across networked commons and communities.",
     keywords: [
       "institutions",
       "commons",
@@ -17,6 +18,7 @@ export const pillars = [
         t: "Dao of the DAO: Eastern Philosophies in Decentralized Worlds",
         a: "Rong, H., Sun, Z.",
         v: "Chinese J. Communication (Under Review)",
+        slug: "dao-of-the-dao",
       },
       {
         t: "Networked Polis Down-to-Earth: Revitalizing the Rural Through Web3 Digital Nomadism",
@@ -77,6 +79,7 @@ export const pillars = [
   {
     number: 2,
     title: "Embodied Urban Futures",
+    summary: "Reclaiming the body as urban evidence \u2014 studying how spatial design and emerging tech shape community, play, and well-being.",
     keywords: [
       "sentient cities",
       "responsive environments",
@@ -131,6 +134,7 @@ export const pillars = [
   {
     number: 3,
     title: "AI Governance & Agentic Systems",
+    summary: "Investigating coordination, trust, and accountability when AI systems act with increasing autonomy across decentralized infrastructures.",
     keywords: [
       "AI governance",
       "AI safety",
@@ -191,6 +195,7 @@ export const pillars = [
   {
     number: 4,
     title: "Trust Experience Design",
+    summary: "Designing trust as a concrete protocol problem \u2014 from cryptographic evidence to the social rituals that make delegation legible.",
     keywords: [
       "trust experience design",
       "protocols",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
 import NoiseCanvas from "./components/NoiseCanvas";
 import FloatingGlyphs from "./components/FloatingGlyphs";
 import Navbar from "./components/Navbar";
@@ -9,12 +10,38 @@ import Team from "./components/Team";
 import Resources from "./components/Resources";
 import News from "./components/News";
 import Contact from "./components/Contact";
+import ProjectPage from "./components/ProjectPage";
+import { projects } from "./data/projects";
+
+function HomePage({ theme, setTheme }) {
+  const [activePillar, setActivePillar] = useState(null);
+  const [activeSection, setActiveSection] = useState("about");
+
+  return (
+    <>
+      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} theme={theme} setTheme={setTheme} />
+      <Hero />
+      <Pillars activePillar={activePillar} setActivePillar={setActivePillar} />
+      <Initiative />
+      <Team />
+      <Resources />
+      <News />
+      <Contact />
+    </>
+  );
+}
 
 export default function App() {
-  const [activePillar, setActivePillar] = useState(null);
   const [loadProgress, setLoadProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
-  const [activeSection, setActiveSection] = useState("about");
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved) {
+      document.documentElement.setAttribute("data-theme", saved);
+      return saved;
+    }
+    return "dark";
+  });
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -53,14 +80,16 @@ export default function App() {
       <NoiseCanvas />
       <FloatingGlyphs />
       <div className="scanline" />
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <Hero />
-      <Pillars activePillar={activePillar} setActivePillar={setActivePillar} />
-      <Initiative />
-      <Team />
-      <Resources />
-      <News />
-      <Contact />
+      <Routes>
+        <Route path="/" element={<HomePage theme={theme} setTheme={setTheme} />} />
+        {projects.map((p) => (
+          <Route
+            key={p.slug}
+            path={`/${p.slug}`}
+            element={<ProjectPage project={p} theme={theme} setTheme={setTheme} />}
+          />
+        ))}
+      </Routes>
     </div>
   );
 }

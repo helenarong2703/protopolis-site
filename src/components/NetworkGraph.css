@@ -1,0 +1,57 @@
+.network-graph {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: -300px;
+  overflow: visible;
+  max-width: 500px;
+}
+
+.network-graph__svg {
+  width: 100%;
+  height: auto;
+}
+
+.network-graph__edge {
+  stroke: var(--color-accent);
+  stroke-width: 0.8;
+}
+
+.network-graph__node {
+  fill: var(--color-accent);
+  opacity: 0.8;
+  animation: nodeFloat 3s ease-in-out infinite alternate;
+}
+
+.network-graph__glow {
+  fill: var(--color-accent);
+  opacity: 0;
+  animation: nodePulse 3s ease-in-out infinite;
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.15; }
+}
+
+.network-graph__label {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  fill: var(--color-text-dimmer);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@keyframes nodeFloat {
+  0% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+@media (max-width: 860px) {
+  .network-graph {
+    max-width: 320px;
+    margin: 0 auto 40px;
+  }
+}

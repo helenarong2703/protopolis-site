@@ -8,3 +8,7 @@
   z-index: 9999;
   mix-blend-mode: overlay;
 }
+
+[data-theme="light"] .noise-canvas {
+  opacity: 0.3;
+}
