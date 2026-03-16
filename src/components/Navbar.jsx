@@ -3,7 +3,7 @@ import "./Navbar.css";
 
 const NAV_ITEMS = [
   { id: "about", label: "ABOUT" },
-  { id: "pillars", label: "PILLARS" },
+  { id: "pillars", label: "RESEARCH" },
   { id: "initiative", label: "INITIATIVE" },
   { id: "team", label: "TEAM" },
   { id: "resources", label: "RESOURCES" },

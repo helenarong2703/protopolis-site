@@ -339,7 +339,7 @@ export default function WorkAreas({ activePillar, setActivePillar }) {
       <div className="work-areas__header">
         <div>
           <div className="work-areas__label">WORK</div>
-          <h2 className="work-areas__heading">Four Work Areas</h2>
+          <h2 className="work-areas__heading">Four Research Areas</h2>
         </div>
         <div className="work-areas__toggle">
           <button
