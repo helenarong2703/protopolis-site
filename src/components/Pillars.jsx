@@ -43,12 +43,16 @@ function PillarCard({ number, title, summary, keywords, description, works, isAc
               <div className="pillar-card__works-label">Selected Works</div>
               <div className="pillar-card__works-grid">
                 {works.map((w, i) => (
-                  <div key={i} className="pillar-card__work" onClick={w.slug ? (e) => e.stopPropagation() : undefined}>
+                  <div key={i} className="pillar-card__work" onClick={w.slug || w.url ? (e) => e.stopPropagation() : undefined}>
                     <div className="pillar-card__work-title">
                       {w.slug ? (
                         <Link to={`/${w.slug}`} className="pillar-card__work-link">
                           {w.t} {"\u2197"}
                         </Link>
+                      ) : w.url ? (
+                        <a href={w.url} target="_blank" rel="noopener noreferrer" className="pillar-card__work-link">
+                          {w.t} {"\u2197"}
+                        </a>
                       ) : (
                         w.t
                       )}

@@ -139,10 +139,13 @@ function generateTrustBridgePath(w, h) {
     const m1y = my + ny * (n1 + n2) * 0.4;
     const m2x = mx - nx * (n1 + n3) * 0.4;
     const m2y = my - ny * (n1 + n3) * 0.4;
+    // tip curve control point — bulges outward for rounded end
+    const tipCx = t.x + (dx / len) * n2 * 0.6;
+    const tipCy = t.y + (dy / len) * n2 * 0.6;
 
     d += `M ${c1x} ${c1y} `;
     d += `Q ${m1x} ${m1y} ${t1x} ${t1y} `;
-    d += `L ${t2x} ${t2y} `;
+    d += `Q ${tipCx} ${tipCy} ${t2x} ${t2y} `;
     d += `Q ${m2x} ${m2y} ${c2x} ${c2y} `;
     d += `Z `;
   });
@@ -517,6 +520,10 @@ export default function WorkAreas({ activePillar, setActivePillar }) {
                           <Link to={`/${wi.slug}`} className="work-areas__detail-work-link">
                             {wi.t} {"\u2197"}
                           </Link>
+                        ) : wi.url ? (
+                          <a href={wi.url} target="_blank" rel="noopener noreferrer" className="work-areas__detail-work-link">
+                            {wi.t} {"\u2197"}
+                          </a>
                         ) : (
                           wi.t
                         )}
