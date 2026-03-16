@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import NoiseCanvas from "./components/NoiseCanvas";
 import FloatingGlyphs from "./components/FloatingGlyphs";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Pillars from "./components/Pillars";
+import WorkAreas from "./components/WorkAreas";
 import Initiative from "./components/Initiative";
 import Team from "./components/Team";
 import Resources from "./components/Resources";
@@ -21,7 +21,7 @@ function HomePage({ theme, setTheme }) {
     <>
       <Navbar activeSection={activeSection} setActiveSection={setActiveSection} theme={theme} setTheme={setTheme} />
       <Hero />
-      <Pillars activePillar={activePillar} setActivePillar={setActivePillar} />
+      <WorkAreas activePillar={activePillar} setActivePillar={setActivePillar} />
       <Initiative />
       <Team />
       <Resources />
@@ -43,6 +43,7 @@ export default function App() {
     document.documentElement.setAttribute("data-theme", "light");
     return "light";
   });
+  const location = useLocation();
 
   useEffect(() => {
     const t = setInterval(() => {
@@ -57,6 +58,10 @@ export default function App() {
     }, 80);
     return () => clearInterval(t);
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   if (!loaded) {
     return (
@@ -80,7 +85,6 @@ export default function App() {
     <div className="app">
       <NoiseCanvas />
       <FloatingGlyphs />
-      <div className="scanline" />
       <Routes>
         <Route path="/" element={<HomePage theme={theme} setTheme={setTheme} />} />
         {projects.map((p) => (

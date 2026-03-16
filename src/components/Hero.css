@@ -11,6 +11,18 @@
   overflow: hidden;
 }
 
+.hero__scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent-subtle);
+  animation: scanline 8s linear infinite;
+  z-index: 20;
+  pointer-events: none;
+}
+
 .hero__top {
   display: flex;
   align-items: center;

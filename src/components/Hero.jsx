@@ -30,6 +30,7 @@ export default function Hero() {
 
   return (
     <section id="about" className="hero">
+      <div className="hero__scanline" />
       <div className="hero__top">
         <div className="hero__text">
           <div className="hero__status">

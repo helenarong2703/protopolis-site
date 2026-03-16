@@ -68,11 +68,15 @@ function PillarCard({ number, title, summary, keywords, description, works, isAc
   );
 }
 
-export default function Pillars({ activePillar, setActivePillar }) {
+export default function Pillars({ activePillar, setActivePillar, embedded }) {
   return (
-    <section id="pillars" className="pillars">
-      <div className="pillars__label">RESEARCH ARCHITECTURE</div>
-      <h2 className="pillars__heading">Four Work Pillars</h2>
+    <section id={embedded ? undefined : "pillars"} className="pillars" style={embedded ? { padding: 0 } : undefined}>
+      {!embedded && (
+        <>
+          <div className="pillars__label">RESEARCH ARCHITECTURE</div>
+          <h2 className="pillars__heading">Four Work Pillars</h2>
+        </>
+      )}
       <div className="pillars__grid">
         {pillars.map((p) => (
           <PillarCard
