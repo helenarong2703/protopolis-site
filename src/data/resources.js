@@ -12,7 +12,7 @@ export const resources = [
     status: "LIVE",
     statusColor: "#00ff88",
     borderColor: "rgba(0,255,136,0.3)",
-    link: "https://tx.design",
+    link: "https://helenarong2703.github.io/NYUSH-TXD/",
   },
   {
     title: "LLM Research Methods",
