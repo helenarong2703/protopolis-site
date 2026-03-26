@@ -71,8 +71,8 @@
     />
   </head>
   <body>
-    <div id="root"></div>
-    <noscript>
+    <div id="root">
+      <!-- Static content for crawlers — React replaces this on mount -->
       <div style="max-width:800px;margin:0 auto;padding:2rem;font-family:serif;color:#333">
         <h1>Protopolis Lab</h1>
         <p><em>/pro-TOP-uh-lis/ — "Perpetual beta for collective life."</em></p>
@@ -138,7 +138,7 @@
         <h2>Contact</h2>
         <p>Protopolis Lab, NYU Shanghai. Visit <a href="https://protopol.is">protopol.is</a></p>
       </div>
-    </noscript>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
