@@ -6,7 +6,7 @@ Research lab website for Protopolis Lab (NYU Shanghai), deployed at **protopol.i
 ## Tech Stack
 - **Vite + React** (plain JavaScript, no TypeScript)
 - **CSS files** (no CSS-in-JS, no Tailwind) — one `.css` per component
-- **No routing library** — single-page with anchor scroll navigation
+- **react-router-dom** for routing (homepage + individual project pages)
 - **Google Fonts** loaded via `index.html`: Space Mono, JetBrains Mono, IBM Plex Serif, IBM Plex Sans
 - **No external dependencies** beyond React — all effects are hand-rolled
 
@@ -29,7 +29,8 @@ protopolis-site/
 │       ├── FloatingGlyphs.jsx/.css   # Falling protocol characters
 │       ├── Navbar.jsx/.css           # Fixed top nav with section tracking
 │       ├── Hero.jsx/.css             # Hero/about section with glitch text
-│       ├── Pillars.jsx/.css          # Expandable research pillar cards
+│       ├── Pillars.jsx/.css          # Expandable research pillar cards (list view)
+│       ├── WorkAreas.jsx/.css       # Interactive network graph with blob clusters (graph view)
 │       ├── Initiative.jsx/.css       # "Beyond Techno-Materialism" section
 │       ├── Team.jsx/.css             # Team member grid
 │       ├── Resources.jsx/.css        # Resource cards with status badges
@@ -48,7 +49,7 @@ protopolis-site/
 All effects are CSS/canvas-based, no libraries:
 - **NoiseCanvas**: Full-screen canvas overlay with `mix-blend-mode: overlay`, redraws random grain every 100ms
 - **FloatingGlyphs**: 30 protocol characters (`⟨⟩{}[]|/\→←` etc.) falling via `floatDown` keyframe
-- **Scanline**: 2px green bar sweeping down the viewport on 8s loop
+- **Scanline**: 2px green bar sweeping within the Hero section only (scoped via `position: absolute` + `overflow: hidden`)
 - **Glitch text**: Hero title randomly triggers `glitchShift` animation every 4-7 seconds
 - **Loading screen**: Fake progress bar that fills over ~1.5s before revealing the site
 
@@ -80,10 +81,12 @@ npm run preview  # Preview production build locally
 
 ## Current Status
 - All sections implemented and matching the mockup design
-- Full publication lists from docx integrated into all four pillars + initiative
+- Full publication lists from docx integrated into all four research areas + initiative
+- 25+ publications linked to external sources (SSRN, arXiv, DOI, project sites)
+- Research section has two view modes: interactive network graph (default) and accordion list, toggled via ◎/☰ buttons
 - News section is a placeholder ("Signal incoming...")
 - No analytics, no CMS, no backend — purely static
-- Vercel deployment in progress — domain `protopol.is` pending DNS configuration
+- Deployed on Vercel at `protopol.is`
 
 ## Session Log
 
@@ -104,6 +107,25 @@ npm run preview  # Preview production build locally
 3. **Completed pillar description text**: Filled in truncated descriptions for pillars 2, 3, and 4 in `src/data/pillars.js` to match docx exactly
 4. **Committed and pushed**: Second commit `1163d66` pushed to `protopolis-site` repo
 5. **Identified Vercel repo mismatch**: User had two GitHub repos — `protopolis-site` (our code, 2 commits) and `protopolis-lab` (empty, 1 default commit). Vercel was connected to the wrong one (`protopolis-lab`). User advised to reconnect Vercel to `protopolis-site`
+
+### 2026-03-16 — Research Areas Redesign & Content Updates
+1. **New WorkAreas component**: Replaced the accordion-style Pillars section with an interactive force-directed network graph visualization
+   - Three colored clusters: Human (yellow `#f5c542`), Environment (teal `#00d4aa`), AI (purple `#b07aff`)
+   - Trust Experience Design (TXD) as a 人-shaped bridge blob connecting all three clusters, with its keyword nodes scattered in interstitial spaces
+   - Organic SANAA-style blob backgrounds with breathing animation (slow sinusoidal edge morphing)
+   - Constant-velocity node drift (same physics as Hero graph) — no springs/forces, just smooth bounce
+   - Cluster labels centred in blobs: "Human", "Environment", "AI" with numbered subtitles
+   - Intro line: "Protocols operate wherever collective life does..."
+2. **View toggle**: Added ◎/☰ toggle between graph view and original accordion list view
+3. **Detail drawer**: Clicking a cluster opens a slide-in panel from the right (solid background, not translucent overlay)
+4. **Scanline scoped to Hero**: Moved scanline from global App to inside Hero component with `position: absolute`
+5. **Scroll-to-top on navigation**: Added `useLocation` + `useEffect` to scroll to top when navigating to project pages
+6. **Scanline removed from project pages**: Only renders on homepage
+7. **Nav renamed**: "PILLARS" → "RESEARCH", heading → "Four Research Areas"
+8. **External hyperlinks**: Added `url` field to 25+ publications across all four research areas, rendered as clickable links in both graph drawer and list view
+9. **Title updates**: "Sovereign Agents" (was "What Is a Sovereign Agent?"), "Public Perception of AVs in China" (was "Public Opinions..."), "Affective Balloons" (was "Senseable City Guide to Paris")
+10. **Team roster updated**: Added Felix Beer (Harvard), Sun Zhe (SUFE), Jenna Davis (Hunter College), Helen Xu (UPenn); removed Jiaqi Chen; updated Juncheng Yang affiliation to Harvard
+11. **TXD toolkit link**: Updated to NYU Shanghai course page
 
 ### Environment Notes
 - Machine lacks Homebrew and sudo access — `gh` CLI installed as standalone binary at `~/bin/gh`
